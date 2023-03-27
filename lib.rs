@@ -12,9 +12,6 @@ pub struct string {
 }
 
 impl runtime::runtime::Library for string {
-    fn init(&mut self, ctx: &mut Context) -> Result<Box<Self>, String> {
-        return Ok(Box::new(string {  }));
-    }
     fn call(
         &mut self,
         id: usize,
