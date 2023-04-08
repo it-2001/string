@@ -1,3 +1,13 @@
+/**
+ * Looks intimidating, ik
+ *
+ * to find the actual code, look for the match statement
+ * or just ctrl+f for "std::<function>"
+ *
+ * there is no official documentation for writing Rusty danda libraries at the time of writing this
+ * for more information, please refer to my github www.github.com/it-2001
+ *
+ */
 extern crate runtime;
 
 use runtime::runtime::runtime_types::Context;
@@ -77,11 +87,15 @@ impl runtime::runtime::Library for string {
                             "Invalid second string pointer",
                         )));
                     }
-                }else {
+                } else {
                     return Err(runtime_error::ErrTypes::Message(format!(
                         "Invalid first string pointer"
                     )));
                 }
+            }
+            // string::join
+            3 => {
+                // take a pointer to an array of strings and join them together
             }
             _ => {
                 unreachable!("Invalid function id")
