@@ -10,16 +10,12 @@
  */
 extern crate runtime;
 
-use runtime::runtime::runtime_types::Context;
-use runtime::runtime::runtime_types::PointerTypes;
-use runtime::runtime::runtime_types::PublicData;
-use runtime::runtime::runtime_types::Types;
-use runtime::runtime::runtime_types::*;
-use runtime::runtime::*;
+use runtime::runtime_types::*;
+use runtime::*;
 
 pub struct string {}
 
-impl runtime::runtime::Library for string {
+impl lib::Library for string {
     fn call(
         &mut self,
         id: usize,
@@ -112,6 +108,6 @@ impl runtime::runtime::Library for string {
 }
 
 #[no_mangle]
-pub fn init(ctx: &mut Context) -> Box<dyn Library> {
+pub fn init(ctx: &mut Context) -> Box<dyn lib::Library> {
     return Box::new(string {});
 }
