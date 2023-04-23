@@ -10,6 +10,7 @@
  */
 extern crate runtime;
 
+use runtime::lib::RegisterData;
 use runtime::runtime_types::*;
 use runtime::*;
 
@@ -102,12 +103,12 @@ impl lib::Library for string {
     fn name(&self) -> String {
         return "string".to_owned();
     }
-    fn register(&self) -> Vec<(String, usize)> {
-        return vec![];
+    fn register(&self) -> lib::RegisterData {
+        RegisterData::new()
     }
 }
 
 #[no_mangle]
-pub fn init(ctx: &mut Context) -> Box<dyn lib::Library> {
+pub fn init(ctx: &mut Context, my_id: usize) -> Box<dyn lib::Library> {
     return Box::new(string {});
 }
